@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Digital Space</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #050505;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        body::before {
+    content: "";
+    position: fixed;
+    width: 360px;
+    height: 360px;
+    background: #ffffff;
+    opacity: 0.055;
+    filter: blur(120px);
+    border-radius: 50%;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    animation: glowMove 6s ease-in-out infinite alternate;
+}
+
+@keyframes glowMove {
+    from {
+        transform: translateX(-50%) scale(0.9);
+        opacity: 0.04;
+    }
+
+    to {
+        transform: translateX(-50%) scale(1.15);
+        opacity: 0.07;
+    }
+}
+
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .menu {
+            color: #888;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 25px;
+        }
+
+            .content {
+    animation: fadeUp 1.2s ease forwards;
+}
+
+h1 {
+    text-shadow: 0 0 35px rgba(255,255,255,0.08);
+}
+
+        .tag {
+            color: #777;
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: clamp(55px, 16vw, 110px);
+            line-height: 0.88;
+            letter-spacing: -5px;
+        }
+
+        h1 span {
+            color: #777;
+        }
+
+        .subtitle {
+            max-width: 430px;
+            margin: 30px auto 0;
+            color: #999;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 15px 30px;
+            border: 1px solid #444;
+            border-radius: 50px;
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        @media (hover: hover) {
+    .button:hover {
+        background: #fff;
+        color: #000;
+        transform: translateY(-3px);
+    }
+}
+
+        .scroll {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #555;
+    font-size: 10px;
+    letter-spacing: 3px;
+    white-space: nowrap;
+}
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+.credit {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #555;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    white-space: nowrap;
+}
+
+.credit strong {
+    color: #aaa;
+    font-weight: 600;
+}
+
+.credit strong {
+    color: #aaa;
+    font-weight: 600;
+}
+.about {
+    min-height: 100vh;
+    padding: 110px 25px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 650px;
+}
+
+.about-label {
+    color: #666;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.about h2 {
+    font-size: clamp(38px, 10vw, 70px);
+    line-height: 1;
+    letter-spacing: -3px;
+    margin-bottom: 30px;
+}
+
+.about h2 span {
+    color: #777;
+}
+
+.about p {
+    color: #999;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+.about-line {
+    width: 60px;
+    height: 1px;
+    background: #444;
+    margin: 35px auto;
+}
+.projects {
+    min-height: 100vh;
+    padding: 110px 25px;
+}
+
+.projects-container {
+    max-width: 900px;
+    margin: auto;
+}
+<a href="#contact">CONTACT</a>
+.projects-label {
+    color: #666;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.projects h2 {
+    font-size: clamp(42px, 11vw, 75px);
+    letter-spacing: -4px;
+    margin-bottom: 50px;
+}
+
+.projects h2 span {
+    color: #777;
+}
+.project-card {
+    border: 1px solid #222;
+    padding: 30px 25px;
+    margin-top: 20px;
+    background: rgba(255,255,255,0.015);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: #fff;
+    opacity: 0;
+    filter: blur(90px);
+    border-radius: 50%;
+    top: -80px;
+    right: -80px;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.project-card:hover {
+    border-color: #444;
+    transform: translateY(-5px);
+}
+
+.project-card:hover::before {
+    opacity: 0.05;
+}
+
+.project-number {
+    color: #555;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.project-card h3 {
+    font-size: 25px;
+    margin: 20px 0 12px;
+    color: #fff;
+}
+
+.project-card p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 500px;
+}
+.nav-links {
+    display: flex;
+    gap: 18px;
+}
+
+.nav-links a {
+    color: #777;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 22px 18px;
+    }
+
+    .logo {
+        font-size: 14px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+}
+.contact {
+    min-height: 80vh;
+    padding: 110px 25px 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.contact-content {
+    max-width: 650px;
+}
+
+.contact-label {
+    color: #666;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.contact h2 {
+    font-size: clamp(42px, 11vw, 75px);
+    line-height: 1;
+    letter-spacing: -4px;
+}
+
+.contact h2 span {
+    color: #777;
+}
+
+.contact-text {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.8;
+    max-width: 520px;
+    margin-top: 20px;
+}
+
+.contact-button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 16px 28px;
+    border: 1px solid #333;
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    transition: all 0.35s ease;
+}
+
+@media (hover: hover) {
+    .contact-button:hover {
+        background: #fff;
+        color: #000;
+        border-color: #fff;
+        transform: translateY(-3px);
+    }
+}
+
+.contact-button:hover {
+    background: #fff;
+    color: #000;
+}
+@media (max-width: 600px) {
+    .about,
+    .projects,
+    .contact {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .projects-container {
+        width: 100%;
+    }
+
+    .project-card {
+        padding: 26px 20px;
+    }
+
+    .contact h2,
+    .about h2,
+    .projects h2 {
+        font-size: 42px;
+        line-height: 1;
+    }
+
+    .contact-text,
+    .about p {
+        font-size: 13px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <nav>
+    <div class="logo">DS RAJPUT</div>
+
+    <div class="nav-links">
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#projects">PROJECTS</a>
+    </div>
+</nav>
+
+    <section class="hero" id="home">
+
+        <div class="content">
+
+            <div class="tag">
+                Welcome to my world
+            </div>
+
+            <h1>
+                Create.<br>
+                <span>Learn.</span><br>
+                Build.
+            </h1>
+
+            <p class="subtitle">
+                A personal digital space for ideas,
+                projects and creativity.
+            </p>
+
+            <a href="#about" class="button">
+                Explore
+            </a>
+
+        </div>
+
+    </section>
+
+    <div class="scroll">
+        SCROLL TO EXPLORE
+    </div>
+<div class="credit">
+    MADE WITH ♥ BY <strong>DS RAJPUT</strong>
+</div>
+<section class="about" id="about">
+
+    <div class="about-content">
+
+        <div class="about-label">
+            About Me
+        </div>
+
+        <h2>
+            Ideas into<br>
+<span>something real.</span>
+        </h2>
+
+        <div class="about-line"></div>
+
+        <p>
+            <p>
+    I'm DS Rajput — a student, creator and builder
+    exploring technology, creativity and new ideas.
+    This is my digital space to share what I create,
+    what I learn and what I'm building along the way.
+</p>
+        </p>
+
+    </div>
+
+</section>
+<section class="projects" id="projects">
+
+    <div class="projects-container">
+
+        <div class="projects-label">
+            Selected Work
+        </div>
+
+        <h2>
+            <h2>
+    Selected<br>
+    <span>projects.</span>
+</h2>
+
+        <div class="project-card">
+            <div class="project-number">01</div>
+            <h3>Personal Website</h3>
+            <p>
+<p>
+    A cinematic personal website designed
+    to showcase ideas, creativity and work.
+</p>
+                A clean and cinematic digital experience
+                focused on simplicity and visual storytelling.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <div class="project-number">02</div>
+            <h3>Creative Project</h3>
+            <p>
+                A space for experiments, ideas and
+                creative work.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <div class="project-number">03</div>
+            <h3>Coming Soon</h3>
+            <p>
+                Something new is currently being built.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+<section class="contact" id="contact">
+
+    <div class="contact-content">
+
+        <div class="contact-label">
+            Get In Touch
+        </div>
+
+        <h2>
+            Let's create<br>
+            <span>something.</span>
+        </h2>
+
+        <p class="contact-text">
+            Have an idea, project or just want to connect?
+            Feel free to reach out.
+        </p>
+
+        <a class="contact-button"
+           href="mailto:YOUR_EMAIL@example.com">
+            CONTACT ME →
+        </a>
+
+    </div>
+
+</section>
+</body>
+</html>
