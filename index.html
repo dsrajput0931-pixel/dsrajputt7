@@ -4,9 +4,9 @@
     <meta name="google-site-verification" content="m9G5DVGLEBvP5bG9Pksn29guUjTYPdBS4GFauR42cg8" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore DS Rajput’s digital space featuring creative projects, technology experiments, and the DS Board Exam study app.">
+    <meta name="description" content="Discover DSR Novix: technology, creative projects, DS AI and the DS Board Exam app.">
 
-    <title>DS Rajput | Creator, Developer &amp; Projects</title>
+    <title>DSR Novix | Technology. Creativity. Beyond Limits.</title>
 
     <style>
         * {
@@ -822,13 +822,575 @@ a:focus-visible {
 }
 /* END DS_CINEMATIC_INTRO_V1 */
 
+
+
+/* DSR_NOVIX_CINEMATIC_V1 */
+
+:root {
+    color-scheme: dark;
+    --novix-bg: #07070b;
+    --novix-panel: rgba(18, 18, 27, 0.78);
+    --novix-border: rgba(194, 184, 255, 0.17);
+    --novix-text: #f4f2ff;
+    --novix-muted: #a5a2b8;
+    --novix-violet: #a78bfa;
+    --novix-cyan: #91e7ff;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+    background: var(--novix-bg);
+}
+
+body {
+    position: relative;
+    isolation: isolate;
+    overflow-x: clip;
+    background:
+        radial-gradient(ellipse at 12% 8%,
+            rgba(107, 72, 190, 0.17), transparent 38%),
+        radial-gradient(ellipse at 88% 38%,
+            rgba(60, 118, 166, 0.10), transparent 34%),
+        linear-gradient(180deg, #08080d 0%, #090910 48%, #060609 100%);
+    color: var(--novix-text);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.20;
+    background-image:
+        linear-gradient(rgba(190, 180, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(190, 180, 255, 0.045) 1px, transparent 1px);
+    background-size: 54px 54px;
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent 88%);
+    mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 340px;
+    height: 340px;
+    right: -190px;
+    top: 12%;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 50%;
+    background: rgba(139, 92, 246, 0.10);
+    filter: blur(90px);
+    animation: novixAmbient 12s ease-in-out infinite alternate;
+}
+
+nav {
+    border-bottom: 1px solid rgba(194, 184, 255, 0.12);
+    background: rgba(7, 7, 12, 0.78);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+}
+
+nav a {
+    transition: color 180ms ease, opacity 180ms ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--novix-cyan);
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1,
+.hero h2 {
+    text-wrap: balance;
+    letter-spacing: -0.045em;
+}
+
+.hero p,
+.about p,
+.projects p,
+.contact p {
+    color: var(--novix-muted);
+    line-height: 1.85;
+}
+
+.hero .button,
+.project-card .button,
+.contact-button {
+    border: 1px solid rgba(206, 194, 255, 0.30);
+    background: linear-gradient(
+        135deg,
+        rgba(139, 92, 246, 0.24),
+        rgba(90, 150, 190, 0.12)
+    );
+    color: #fff;
+    box-shadow: 0 0 28px rgba(139, 92, 246, 0.08);
+    transition:
+        transform 200ms ease,
+        border-color 200ms ease,
+        background 200ms ease,
+        box-shadow 200ms ease;
+}
+
+.hero .button:hover,
+.project-card .button:hover,
+.contact-button:hover {
+    transform: translateY(-2px);
+    border-color: rgba(180, 220, 255, 0.70);
+    background: linear-gradient(
+        135deg,
+        rgba(139, 92, 246, 0.38),
+        rgba(90, 180, 210, 0.20)
+    );
+    box-shadow: 0 8px 32px rgba(111, 91, 220, 0.16);
+}
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--novix-border);
+    border-radius: 18px;
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.035),
+            transparent 58%),
+        var(--novix-panel);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    transition:
+        transform 220ms ease,
+        border-color 220ms ease,
+        box-shadow 220ms ease;
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(190, 174, 255, 0.7),
+        transparent
+    );
+    opacity: 0.45;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(180, 160, 255, 0.42);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+}
+
+.project-number,
+.projects-label,
+.contact-label {
+    color: var(--novix-violet);
+    letter-spacing: 0.13em;
+}
+
+.about,
+.projects,
+.contact {
+    position: relative;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--novix-cyan);
+    outline-offset: 5px;
+}
+
+::selection {
+    background: rgba(167, 139, 250, 0.32);
+    color: #fff;
+}
+
+@keyframes novixAmbient {
+    from {
+        transform: translate3d(0, -10px, 0) scale(0.94);
+        opacity: 0.65;
+    }
+    to {
+        transform: translate3d(-35px, 30px, 0) scale(1.08);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 640px) {
+    body::before {
+        background-size: 38px 38px;
+        opacity: 0.13;
+    }
+
+    body::after {
+        width: 230px;
+        height: 230px;
+        filter: blur(70px);
+    }
+
+    .project-card {
+        border-radius: 15px;
+    }
+
+    .project-card:hover {
+        transform: none;
+    }
+
+    .hero .button,
+    .project-card .button,
+    .contact-button {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* END DSR_NOVIX_CINEMATIC_V1 */
+
+
+
+/* DSR NOVIX SEARCH + INTRO V1 */
+:root {
+    --novix-violet: #a78bfa;
+    --novix-silver: #e8e8f0;
+    --novix-panel: rgba(14, 14, 22, .94);
+}
+
+body.novix-loading {
+    overflow: hidden;
+}
+
+.novix-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background:
+        radial-gradient(ellipse at 50% 42%, rgba(124,58,237,.19), transparent 42%),
+        #050507;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .65s ease, visibility .65s ease;
+}
+
+.novix-intro.is-leaving {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.novix-intro-inner {
+    width: min(100%, 480px);
+    text-align: center;
+    animation: novixIntroReveal .9s cubic-bezier(.2,.75,.25,1) both;
+}
+
+.novix-intro-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 27px;
+    border: 1px solid rgba(196,181,253,.65);
+    border-radius: 22px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    background: linear-gradient(145deg, rgba(167,139,250,.25), rgba(255,255,255,.025));
+    box-shadow: 0 0 50px rgba(139,92,246,.19), inset 0 0 22px rgba(167,139,250,.08);
+}
+
+.novix-intro-title {
+    color: #fff;
+    font-size: clamp(30px, 8vw, 51px);
+    font-weight: 900;
+    letter-spacing: .13em;
+    line-height: 1.15;
+    text-indent: .13em;
+}
+
+.novix-intro-title span {
+    color: var(--novix-violet);
+}
+
+.novix-intro-tagline {
+    margin-top: 15px;
+    color: #aaa7b8;
+    font-size: 11px;
+    letter-spacing: .17em;
+    line-height: 1.8;
+    text-transform: uppercase;
+}
+
+.novix-intro-track {
+    height: 2px;
+    width: min(220px, 75%);
+    margin: 35px auto 0;
+    overflow: hidden;
+    background: rgba(255,255,255,.12);
+}
+
+.novix-intro-track span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #8b5cf6, #e9d5ff);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: novixProgress 1.65s ease forwards;
+}
+
+.novix-skip {
+    margin-top: 30px;
+    padding: 10px 15px;
+    color: #c9c5d5;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 999px;
+    background: rgba(255,255,255,.035);
+    font: inherit;
+    font-size: 11px;
+    letter-spacing: .12em;
+    cursor: pointer;
+}
+
+.novix-skip:focus-visible,
+.novix-search-input:focus-visible {
+    outline: 2px solid var(--novix-violet);
+    outline-offset: 4px;
+}
+
+nav .logo {
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: .12em;
+    white-space: nowrap;
+}
+
+nav .logo span {
+    color: var(--novix-violet);
+}
+
+.novix-search-wrap {
+    position: relative;
+    width: min(260px, 100%);
+    margin-left: auto;
+    margin-right: 22px;
+    z-index: 20;
+}
+
+.novix-search-box {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-height: 42px;
+    padding: 0 12px;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 12px;
+    background: rgba(255,255,255,.045);
+    transition: border-color .2s, background .2s;
+}
+
+.novix-search-box:focus-within {
+    border-color: rgba(167,139,250,.7);
+    background: rgba(167,139,250,.07);
+}
+
+.novix-search-icon {
+    color: #b7a4f7;
+    font-size: 17px;
+}
+
+.novix-search-input {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    font-size: 13px;
+}
+
+.novix-search-input::placeholder {
+    color: #9b98a8;
+}
+
+.novix-search-results {
+    position: absolute;
+    top: calc(100% + 9px);
+    left: 0;
+    right: 0;
+    max-height: 280px;
+    overflow-y: auto;
+    padding: 7px;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 14px;
+    background: var(--novix-panel);
+    box-shadow: 0 18px 55px rgba(0,0,0,.48);
+    backdrop-filter: blur(18px);
+}
+
+.novix-search-results[hidden] {
+    display: none;
+}
+
+.novix-search-result {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    border-radius: 9px;
+    color: #f4f0ff;
+    background: transparent;
+    text-align: left;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.novix-search-result:hover,
+.novix-search-result:focus-visible {
+    outline: none;
+    background: rgba(167,139,250,.15);
+}
+
+.novix-search-result small {
+    display: block;
+    margin-top: 4px;
+    color: #aaa6b8;
+    font-size: 11px;
+}
+
+.novix-search-empty {
+    padding: 13px 10px;
+    color: #c2bdcf;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.novix-search-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+@keyframes novixIntroReveal {
+    from { opacity: 0; transform: translateY(18px) scale(.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes novixProgress {
+    to { transform: scaleX(1); }
+}
+
+@media (max-width: 760px) {
+    nav {
+        flex-wrap: wrap;
+        gap: 13px;
+    }
+
+    .novix-search-wrap {
+        order: 3;
+        width: 100%;
+        margin: 0;
+    }
+
+    nav .nav-links {
+        max-width: 100%;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .novix-search-results {
+        max-height: 230px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .novix-intro,
+    .novix-intro-inner,
+    .novix-intro-track span {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .novix-intro-track span {
+        transform: scaleX(1);
+    }
+}
+/* END DSR NOVIX SEARCH + INTRO V1 */
+
 </style>
 </head>
 
-<body>
+<body class="novix-loading">
 
-    <nav>
-    <div class="logo">DS RAJPUT</div>
+<div class="novix-intro" id="novix-intro" role="dialog" aria-label="DSR Novix introduction">
+    <div class="novix-intro-inner">
+        <div class="novix-intro-mark" aria-hidden="true">DSR</div>
+        <div class="novix-intro-title">DSR <span>NOVIX</span></div>
+        <p class="novix-intro-tagline">Technology. Creativity. Beyond Limits.</p>
+        <div class="novix-intro-track" aria-hidden="true"><span></span></div>
+        <button class="novix-skip" id="novix-skip" type="button">SKIP INTRO ↗</button>
+    </div>
+</div>
+
+
+    <nav aria-label="Main navigation">
+    <a class="logo" href="#home" aria-label="DSR Novix home">DSR <span>NOVIX</span></a>
+
+    <div class="novix-search-wrap" id="novix-search">
+        <div class="novix-search-box">
+            <span class="novix-search-icon" aria-hidden="true">⌕</span>
+            <input
+                class="novix-search-input"
+                id="novix-search-input"
+                type="search"
+                placeholder="Search apps, projects..."
+                autocomplete="off"
+                aria-label="Search this website"
+                aria-controls="novix-search-results"
+                aria-expanded="false">
+        </div>
+        <div class="novix-search-results" id="novix-search-results" role="listbox" hidden></div>
+        <div class="novix-search-status" id="novix-search-status" aria-live="polite"></div>
+    </div>
 
     <div class="nav-links">
         <a href="#home">HOME</a>
@@ -935,7 +1497,7 @@ a:focus-visible {
             </p>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" id="ds-ai">
     <div class="project-number">03</div>
     <h3>DS AI — Your Personal AI Assistant</h3>
     <p>
@@ -997,5 +1559,147 @@ a:focus-visible {
     </div>
 
 </section>
+
+<script>
+(function () {
+    "use strict";
+
+    var intro = document.getElementById("novix-intro");
+    var skip = document.getElementById("novix-skip");
+    var search = document.getElementById("novix-search-input");
+    var results = document.getElementById("novix-search-results");
+    var status = document.getElementById("novix-search-status");
+    var timer;
+
+    function closeIntro() {
+        if (!intro || intro.classList.contains("is-leaving")) return;
+        intro.classList.add("is-leaving");
+        document.body.classList.remove("novix-loading");
+        window.setTimeout(function () {
+            if (intro && intro.parentNode) intro.parentNode.removeChild(intro);
+        }, 700);
+        if (timer) window.clearTimeout(timer);
+    }
+
+    if (skip) skip.addEventListener("click", closeIntro);
+
+    if (window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        closeIntro();
+    } else {
+        timer = window.setTimeout(closeIntro, 2300);
+    }
+
+    var targets = [
+        { title: "Home", detail: "Welcome to DSR Novix", id: "home", keywords: "home welcome start" },
+        { title: "About", detail: "Learn about the creator", id: "about", keywords: "about creator ds rajput" },
+        { title: "Projects & Apps", detail: "Explore all projects", id: "projects", keywords: "projects apps downloads" },
+        { title: "DS AI", detail: "AI assistant app", id: "ds-ai", keywords: "ds ai artificial intelligence assistant apk" },
+        { title: "DS Board Exam", detail: "Class 12 study app", id: "projects", keywords: "board exam study class 12 upmsp education" },
+        { title: "Contact", detail: "Get in touch", id: "contact", keywords: "contact connect message" }
+    ];
+
+    function hideResults() {
+        results.hidden = true;
+        search.setAttribute("aria-expanded", "false");
+    }
+
+    function showResults(query) {
+        results.replaceChildren();
+        var q = query.trim().toLowerCase();
+
+        if (!q) {
+            hideResults();
+            status.textContent = "";
+            return;
+        }
+
+        var matches = targets.filter(function (item) {
+            return (item.title + " " + item.detail + " " + item.keywords)
+                .toLowerCase().indexOf(q) !== -1;
+        }).slice(0, 6);
+
+        if (!matches.length) {
+            var empty = document.createElement("div");
+            empty.className = "novix-search-empty";
+            empty.textContent = "No matching section found. Try “DS AI”, “Apps” or “About”.";
+            results.appendChild(empty);
+        } else {
+            matches.forEach(function (item) {
+                var button = document.createElement("button");
+                button.type = "button";
+                button.className = "novix-search-result";
+                button.setAttribute("role", "option");
+
+                var title = document.createElement("span");
+                title.textContent = item.title;
+
+                var detail = document.createElement("small");
+                detail.textContent = item.detail;
+
+                button.appendChild(title);
+                button.appendChild(detail);
+
+                button.addEventListener("click", function () {
+                    var destination = document.getElementById(item.id);
+                    hideResults();
+                    search.value = "";
+                    if (destination) {
+                        closeIntro();
+                        destination.scrollIntoView({ behavior: "smooth", block: "start" });
+                        if (window.location.hash !== "#" + item.id) {
+                            window.history.replaceState(null, "", "#" + item.id);
+                        }
+                    }
+                });
+
+                results.appendChild(button);
+            });
+        }
+
+        results.hidden = false;
+        search.setAttribute("aria-expanded", "true");
+        status.textContent = matches.length
+            ? matches.length + " search results"
+            : "No search results";
+    }
+
+    if (search && results && status) {
+        search.addEventListener("input", function () {
+            showResults(search.value);
+        });
+
+        search.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                hideResults();
+                search.blur();
+            } else if (event.key === "Enter" && !results.hidden) {
+                var first = results.querySelector("button");
+                if (first) first.click();
+            } else if (event.key === "ArrowDown" && !results.hidden) {
+                var option = results.querySelector("button");
+                if (option) {
+                    event.preventDefault();
+                    option.focus();
+                }
+            }
+        });
+
+        results.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") {
+                hideResults();
+                search.focus();
+            }
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!document.getElementById("novix-search").contains(event.target)) {
+                hideResults();
+            }
+        });
+    }
+})();
+</script>
+
 </body>
 </html>
