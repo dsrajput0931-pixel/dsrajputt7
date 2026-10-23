@@ -1589,6 +1589,41 @@ nav .logo span {
 }
 /* ===== END NOVIX COMMAND CENTER ===== */
 
+
+/* ===== NOVIX NEXUS ===== */
+#novix-nexus{position:relative;isolation:isolate;overflow:hidden;min-height:620px;padding:90px 18px;color:#f4f4ff;background:radial-gradient(ellipse at 50% 48%,#17142f 0%,#090a13 50%,#050609 100%);text-align:center}
+#novix-nexus .nx-stars{position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(circle,#fff 1px,transparent 1.5px),radial-gradient(circle,#918bff 1px,transparent 1.5px);background-size:83px 91px,127px 139px;opacity:.4;animation:nx-drift 35s linear infinite}
+#novix-nexus .nx-eyebrow{color:#aaa8ff;font:700 11px/1.6 monospace;letter-spacing:.22em}
+#novix-nexus .nx-title{margin:12px 0;font-size:clamp(38px,7vw,68px);line-height:1.05;letter-spacing:-.04em}
+#novix-nexus .nx-title span{color:#aaa7ff;text-shadow:0 0 30px #7b70ff55}
+#novix-nexus .nx-intro{max-width:600px;margin:0 auto;color:#b8b9ca;line-height:1.8;font-size:15px}
+#novix-nexus .nx-universe{position:relative;width:min(100%,570px);aspect-ratio:1;max-height:570px;margin:28px auto 0;display:grid;place-items:center}
+#novix-nexus .nx-orbit{position:absolute;border:1px solid #a19aff40;border-radius:50%;pointer-events:none}
+#novix-nexus .nx-orbit-one{width:52%;height:52%}
+#novix-nexus .nx-orbit-two{width:76%;height:76%;transform:rotate(-25deg)}
+#novix-nexus .nx-orbit-three{width:98%;height:98%;transform:rotate(24deg);border-style:dashed;opacity:.65}
+#novix-nexus .nx-core{z-index:2;width:30%;aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:7px;border:1px solid #c6bfff;background:radial-gradient(circle at 35% 25%,#39316b,#121328 68%);box-shadow:0 0 24px #8274ff80,0 0 90px #5e50ff33,inset 0 0 28px #a497ff29}
+#novix-nexus .nx-core b{font-size:clamp(13px,3vw,20px);letter-spacing:.08em}
+#novix-nexus .nx-core small{color:#c1bfff;font:10px monospace;letter-spacing:.12em}
+#novix-nexus .nx-planet{position:absolute;z-index:3;width:clamp(74px,19%,105px);min-height:76px;padding:9px 3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:#f4f4ff;border:1px solid #a49eff60;border-radius:16px;background:#0c0d1bf2;text-decoration:none;font-size:10px;box-shadow:0 8px 30px #0005;transition:transform .2s,border-color .2s;cursor:pointer}
+#novix-nexus .nx-symbol{font-size:23px;line-height:1}
+#novix-nexus .nx-planet:hover,#novix-nexus .nx-planet:focus-visible{transform:scale(1.07);border-color:#b7b1ff;outline:2px solid #aaa7ff}
+#novix-nexus .nx-p-ai{top:8%;left:50%;transform:translateX(-50%)}
+#novix-nexus .nx-p-exam{right:1%;top:47%}
+#novix-nexus .nx-p-projects{bottom:8%;left:50%;transform:translateX(-50%)}
+#novix-nexus .nx-p-secret{left:1%;top:47%}
+#novix-nexus .nx-p-ai:hover,#novix-nexus .nx-p-ai:focus-visible,#novix-nexus .nx-p-projects:hover,#novix-nexus .nx-p-projects:focus-visible{transform:translateX(-50%) scale(1.07)}
+#novix-nexus .nx-caption{min-height:26px;margin:0 auto;color:#b8b9ca;font:11px/1.8 monospace;letter-spacing:.06em}
+#novix-nexus .nx-secret-note{max-width:520px;margin:16px auto 0;padding:18px;border:1px solid #a49eff45;border-radius:16px;background:#121126}
+#novix-nexus .nx-secret-note h3{margin:0 0 8px;color:#c2bdff}
+#novix-nexus .nx-secret-note p{margin:0;color:#c7c7d8;line-height:1.7;font-size:14px}
+#novix-nexus .nx-hidden{display:none}
+#novix-nexus .nx-hint{color:#85869c;font-size:11px;margin-top:12px}
+@keyframes nx-drift{to{background-position:83px 91px,162px 199px}}
+@media(max-width:480px){#novix-nexus{padding:70px 10px}#novix-nexus .nx-planet{width:73px;min-height:70px;border-radius:13px;font-size:9px}#novix-nexus .nx-core{width:32%}}
+@media(prefers-reduced-motion:reduce){#novix-nexus .nx-stars{animation:none}#novix-nexus .nx-planet{transition:none}}
+/* ===== END NOVIX NEXUS ===== */
+
 </style>
 </head>
 
@@ -1674,6 +1709,27 @@ nav .logo span {
 <div class="credit">
     MADE WITH ♥ BY <strong>DS RAJPUT</strong>
 </div>
+
+<section id="novix-nexus" aria-labelledby="nx-heading">
+  <div class="nx-stars" aria-hidden="true"></div>
+  <div class="nx-eyebrow">DSR NOVIX / INTERACTIVE UNIVERSE</div>
+  <h2 class="nx-title" id="nx-heading">NOVIX <span>NEXUS</span></h2>
+  <p class="nx-intro">A universe of ideas, intelligence and experiments. Choose a portal and explore what we're building.</p>
+  <div class="nx-universe" aria-label="Interactive project universe">
+    <div class="nx-orbit nx-orbit-one" aria-hidden="true"></div>
+    <div class="nx-orbit nx-orbit-two" aria-hidden="true"></div>
+    <div class="nx-orbit nx-orbit-three" aria-hidden="true"></div>
+    <div class="nx-core"><b>NOVIX</b><small>CORE ONLINE</small></div>
+    <a class="nx-planet nx-p-ai" href="downloads/DS-AI-Voice.apk" aria-label="Download DS AI"><span class="nx-symbol" aria-hidden="true">✦</span><strong>DS AI</strong><span>INTELLIGENCE</span></a>
+    <a class="nx-planet nx-p-exam" href="https://github.com/dsrajput0931-pixel/ds-board-exam-release/releases/download/v1.0.1/DS-Board-Exam-Candidate.apk"><span class="nx-symbol" aria-hidden="true">▤</span><strong>BOARD EXAM</strong><span>LEARNING</span></a>
+    <a class="nx-planet nx-p-projects" href="#projects"><span class="nx-symbol" aria-hidden="true">⌘</span><strong>PROJECTS</strong><span>CREATION</span></a>
+    <button class="nx-planet nx-p-secret" id="nx-secret-trigger" type="button" aria-controls="nx-secret" aria-expanded="false"><span class="nx-symbol" aria-hidden="true">◇</span><strong>UNKNOWN</strong><span>???</span></button>
+  </div>
+  <p class="nx-caption" id="nx-caption" aria-live="polite">SELECT A PORTAL TO BEGIN EXPLORING</p>
+  <div class="nx-secret-note nx-hidden" id="nx-secret"><h3>PROJECT 404 — SIGNAL FOUND</h3><p>You discovered the hidden portal. Some of the most interesting ideas begin as experiments. Keep exploring; the next chapter of NOVIX is still being built.</p></div>
+  <p class="nx-hint">EXPLORER TIP: Tap the unknown portal to reveal a hidden signal.</p>
+</section>
+
 <section class="about" id="about">
 
     <div class="about-content">
@@ -2026,5 +2082,29 @@ nav .logo span {
 })();
 </script>
 
+<script>
+
+/* NOVIX NEXUS interactions */
+(() => {
+  const button = document.getElementById('nx-secret-trigger');
+  const panel = document.getElementById('nx-secret');
+  const caption = document.getElementById('nx-caption');
+  if (!button || !panel || !caption) return;
+  button.addEventListener('click', () => {
+    const opening = panel.classList.contains('nx-hidden');
+    panel.classList.toggle('nx-hidden', !opening);
+    button.setAttribute('aria-expanded', String(opening));
+    caption.textContent = opening ? 'SECRET SIGNAL UNLOCKED / PROJECT 404' : 'SIGNAL HIDDEN / SELECT A PORTAL TO CONTINUE';
+    if (opening) panel.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+  });
+  document.querySelectorAll('#novix-nexus .nx-planet[href]').forEach(link => {
+    link.addEventListener('click', () => {
+      const label = link.querySelector('strong');
+      if (label) caption.textContent = 'PORTAL SELECTED / ' + label.textContent;
+    });
+  });
+})();
+
+</script>
 </body>
 </html>
