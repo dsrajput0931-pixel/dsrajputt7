@@ -1726,7 +1726,34 @@ nav .logo span {
     <button class="nx-planet nx-p-secret" id="nx-secret-trigger" type="button" aria-controls="nx-secret" aria-expanded="false"><span class="nx-symbol" aria-hidden="true">◇</span><strong>UNKNOWN</strong><span>???</span></button>
   </div>
   <p class="nx-caption" id="nx-caption" aria-live="polite">SELECT A PORTAL TO BEGIN EXPLORING</p>
-  <div class="nx-secret-note nx-hidden" id="nx-secret"><h3>PROJECT 404 — SIGNAL FOUND</h3><p>You discovered the hidden portal. Some of the most interesting ideas begin as experiments. Keep exploring; the next chapter of NOVIX is still being built.</p></div>
+  <div class="nx-secret-note nx-hidden" id="nx-secret">
+    <div id="p404-game" style="text-align:left">
+      <p style="color:#a7a0ff;font:11px monospace;letter-spacing:3px">CLASSIFIED // NOVIX SECURITY DIVISION</p>
+      <h3 style="font-size:clamp(24px,5vw,36px)">PROJECT 404</h3>
+      <p style="margin-bottom:18px">An unknown signal has breached the NOVIX Core. Solve the missions to recover the access key.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin:16px 0">
+        <span style="border:1px solid #7772ff55;padding:9px 12px;border-radius:10px">XP <b id="p404-xp">0</b></span>
+        <span style="border:1px solid #7772ff55;padding:9px 12px;border-radius:10px">LEVEL <b id="p404-level">1</b></span>
+        <span style="border:1px solid #7772ff55;padding:9px 12px;border-radius:10px">MISSIONS <b id="p404-count">0/3</b></span>
+      </div>
+      <div id="p404-mission" style="border:1px solid #8c84ff55;background:#090b17;border-radius:14px;padding:18px;margin:14px 0">
+        <p id="p404-stage" style="font:11px monospace;color:#9b94ff;letter-spacing:2px">MISSION 01 // SIGNAL TRACE</p>
+        <h4 id="p404-title" style="font-size:20px;margin:10px 0">The First Access Code</h4>
+        <p id="p404-question" style="color:#d2d2e3;line-height:1.7">A three-digit code. The digits are 2, 4 and 6. What is the code when arranged from smallest to largest?</p>
+        <label for="p404-answer" style="display:block;font-size:12px;color:#a8a8bd;margin:16px 0 7px">ENTER YOUR ANSWER</label>
+        <input id="p404-answer" type="text" autocomplete="off" style="box-sizing:border-box;width:100%;padding:13px;border-radius:9px;border:1px solid #7069bd;background:#111322;color:white;font:16px monospace" placeholder="Type access code">
+        <button id="p404-submit" type="button" style="margin-top:12px;width:100%;padding:13px;border:0;border-radius:9px;background:linear-gradient(90deg,#7167ff,#36c8ef);color:#080a14;font-weight:800">VERIFY CODE ↗</button>
+        <p id="p404-feedback" role="status" aria-live="polite" style="min-height:24px;font-size:13px;margin:12px 0 0;color:#b7b5d8"></p>
+      </div>
+      <div id="p404-ending" hidden style="border:1px solid #8b80ff;padding:20px;border-radius:14px;background:#111024">
+        <h4 style="color:#c2bdff;font-size:24px">CORE RESTORED</h4>
+        <p>All three missions completed. The hidden NOVIX archive is now unlocked.</p>
+        <p style="font:12px monospace;color:#8eeaff">ACCESS GRANTED // PROJECT 404</p>
+      </div>
+      <button id="p404-restart" type="button" style="padding:10px 14px;border-radius:9px;border:1px solid #7772ff66;background:transparent;color:#c9c7ff">↻ RESTART GAME</button>
+      <p style="font-size:11px;color:#85869c;margin-top:12px">Progress is kept for this page session only. No account needed.</p>
+    </div>
+  </div>
   <p class="nx-hint">EXPLORER TIP: Tap the unknown portal to reveal a hidden signal.</p>
 </section>
 
@@ -2106,5 +2133,95 @@ nav .logo span {
 })();
 
 </script>
+
+<script>
+/* PROJECT 404 — local browser puzzle game */
+(() => {
+  const root = document.getElementById('p404-game');
+  if (!root || root.dataset.ready) return;
+  root.dataset.ready = '1';
+
+  const missions = [
+    {stage:'MISSION 01 // SIGNAL TRACE',title:'The First Access Code',
+     question:'A three-digit code uses the digits 2, 4 and 6 exactly once. Arrange them from smallest to largest.',
+     answer:'246',hint:'Start with the smallest digit.'},
+    {stage:'MISSION 02 // LOGIC PROTOCOL',title:'The Missing Number',
+     question:'Decode the sequence: 3, 6, 12, 24, __. Which number comes next?',
+     answer:'48',hint:'Each number is multiplied by the same amount.'},
+    {stage:'MISSION 03 // ARCHIVE BREACH',title:'The Secret Word',
+     question:'NOVIX uses this letter shift: A becomes B, B becomes C, and so on. Decode the word DPEF to find the archive key.',
+     answer:'CODE',hint:'Move each letter one step backwards in the alphabet.'}
+  ];
+
+  const $ = id => document.getElementById(id);
+  let index = 0, xp = 0, completed = new Set(), attempts = 0;
+
+  function render() {
+    $('p404-xp').textContent = xp;
+    $('p404-level').textContent = Math.min(4, 1 + completed.size);
+    $('p404-count').textContent = completed.size + '/3';
+    $('p404-feedback').textContent = '';
+    $('p404-answer').value = '';
+    $('p404-answer').disabled = completed.has(index);
+    $('p404-submit').disabled = completed.has(index);
+    $('p404-submit').textContent = completed.has(index) ? 'MISSION CLEARED ✓' : 'VERIFY CODE ↗';
+    if (completed.size === 3) {
+      $('p404-mission').hidden = true;
+      $('p404-ending').hidden = false;
+      $('p404-restart').textContent = '↻ PLAY AGAIN';
+      return;
+    }
+    $('p404-mission').hidden = false;
+    $('p404-ending').hidden = true;
+    $('p404-restart').textContent = '↻ RESTART GAME';
+    const m = missions[index];
+    $('p404-stage').textContent = m.stage;
+    $('p404-title').textContent = m.title;
+    $('p404-question').textContent = m.question;
+  }
+
+  function verify() {
+    if (completed.has(index) || completed.size === 3) return;
+    const value = $('p404-answer').value.trim().toUpperCase();
+    if (!value) {
+      $('p404-feedback').textContent = 'Enter an answer first.';
+      return;
+    }
+    attempts++;
+    if (value !== missions[index].answer) {
+      $('p404-feedback').textContent = attempts % 2 === 0
+        ? 'ACCESS DENIED. Hint: ' + missions[index].hint
+        : 'Not quite. Recheck the clue and try again.';
+      return;
+    }
+    completed.add(index);
+    xp += 100;
+    $('p404-feedback').textContent = 'ACCESS GRANTED! +100 XP';
+    $('p404-xp').textContent = xp;
+    $('p404-count').textContent = completed.size + '/3';
+    $('p404-level').textContent = Math.min(4, 1 + completed.size);
+    if (completed.size === 3) {
+      render();
+      return;
+    }
+    $('p404-submit').textContent = 'MISSION CLEARED ✓';
+    $('p404-answer').disabled = true;
+    $('p404-submit').disabled = true;
+    const next = missions.findIndex((_, i) => !completed.has(i));
+    $('p404-feedback').textContent = 'ACCESS GRANTED! +100 XP — Next mission unlocked.';
+    setTimeout(() => { index = next; attempts = 0; render(); }, 850);
+  }
+
+  $('p404-submit').addEventListener('click', verify);
+  $('p404-answer').addEventListener('keydown', event => {
+    if (event.key === 'Enter') verify();
+  });
+  $('p404-restart').addEventListener('click', () => {
+    index = 0; xp = 0; attempts = 0; completed = new Set(); render();
+  });
+  render();
+})();
+</script>
+
 </body>
 </html>
