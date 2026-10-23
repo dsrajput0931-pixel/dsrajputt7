@@ -1356,6 +1356,239 @@ nav .logo span {
 }
 /* END DSR NOVIX SEARCH + INTRO V1 */
 
+
+
+/* ===== NOVIX COMMAND CENTER ===== */
+#command-center {
+    position: relative;
+    padding: 110px 7%;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 15% 10%, rgba(93,75,255,.13), transparent 42%),
+        radial-gradient(ellipse at 90% 85%, rgba(0,220,255,.08), transparent 38%),
+        #08090d;
+    color: #f5f6ff;
+    scroll-margin-top: 30px;
+}
+
+#command-center * {
+    box-sizing: border-box;
+}
+
+.cc-shell {
+    max-width: 1120px;
+    margin: auto;
+}
+
+.cc-eyebrow {
+    color: #a5a0ff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.cc-heading {
+    margin: 15px 0 12px;
+    font-size: clamp(35px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.cc-heading span {
+    background: linear-gradient(100deg, #a8a0ff, #73e6ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cc-description {
+    max-width: 600px;
+    color: #a4a7b8;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.cc-topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 30px 0 24px;
+    padding: 17px 19px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 16px;
+    background: rgba(255,255,255,.035);
+}
+
+.cc-live-label {
+    color: #c8cad8;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.cc-live-label::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: #75e7b0;
+    box-shadow: 0 0 12px rgba(117,231,176,.6);
+}
+
+.cc-time {
+    color: #b8b5ff;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+}
+
+.cc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.cc-card {
+    position: relative;
+    min-width: 0;
+    padding: 25px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.018));
+    transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+
+.cc-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(153,145,255,.55);
+    background: linear-gradient(145deg, rgba(116,103,255,.11), rgba(255,255,255,.025));
+}
+
+.cc-card-icon {
+    display: grid;
+    place-items: center;
+    width: 49px;
+    height: 49px;
+    margin-bottom: 21px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 15px;
+    background: rgba(130,119,255,.12);
+    font-size: 23px;
+}
+
+.cc-card h3 {
+    margin: 0 0 10px;
+    color: #f5f6ff;
+    font-size: 21px;
+    letter-spacing: -.4px;
+}
+
+.cc-card p {
+    min-height: 48px;
+    margin: 0 0 22px;
+    color: #a4a7b8;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.cc-tag {
+    display: inline-block;
+    margin-bottom: 17px;
+    padding: 6px 9px;
+    border: 1px solid rgba(255,255,255,.11);
+    border-radius: 999px;
+    color: #b9b7ff;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cc-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 43px;
+    padding: 11px 16px;
+    border: 1px solid rgba(255,255,255,.17);
+    border-radius: 10px;
+    background: rgba(255,255,255,.055);
+    color: #f5f6ff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.cc-button:hover {
+    border-color: rgba(156,148,255,.7);
+    background: rgba(125,111,255,.18);
+}
+
+.cc-primary {
+    border-color: transparent;
+    background: linear-gradient(100deg, #7467ff, #4f9dff);
+    color: #fff;
+}
+
+.cc-primary:hover {
+    background: linear-gradient(100deg, #8a7fff, #65b1ff);
+}
+
+.cc-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 23px;
+    color: #777c91;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.cc-footer strong {
+    color: #b9b7ff;
+    font-weight: 600;
+}
+
+@media (max-width: 640px) {
+    #command-center {
+        padding: 75px 5%;
+    }
+
+    .cc-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .cc-card {
+        padding: 22px;
+    }
+
+    .cc-heading {
+        letter-spacing: -1.4px;
+    }
+
+    .cc-topline {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #command-center *,
+    #command-center *::before,
+    #command-center *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+/* ===== END NOVIX COMMAND CENTER ===== */
+
 </style>
 </head>
 
@@ -1397,6 +1630,7 @@ nav .logo span {
         <a href="#about">ABOUT</a>
         <a href="#projects">PROJECTS</a>
         <a href="#contact">CONTACT</a>
+        <a href="#command-center">COMMAND CENTER</a>
     </div>
 </nav>
 
@@ -1533,6 +1767,84 @@ nav .logo span {
     </div>
 </section>
 
+
+<section id="command-center" aria-labelledby="cc-heading">
+    <div class="cc-shell">
+        <div class="cc-eyebrow">DSR NOVIX / DIGITAL HQ</div>
+
+        <h2 class="cc-heading" id="cc-heading">
+            Command <span>Center.</span>
+        </h2>
+
+        <p class="cc-description">
+            One place for our AI assistant, apps and creative projects.
+            Welcome to the DSR Novix digital headquarters.
+        </p>
+
+        <div class="cc-topline">
+            <div class="cc-live-label">COMMAND CENTER READY</div>
+            <div class="cc-time" id="cc-clock">LOCAL TIME --:--:--</div>
+        </div>
+
+        <div class="cc-grid">
+            <article class="cc-card">
+                <div class="cc-card-icon" aria-hidden="true">✦</div>
+                <span class="cc-tag">Artificial Intelligence</span>
+                <h3>DS AI</h3>
+                <p>
+                    Meet our AI assistant and explore the DS AI Android app.
+                </p>
+                <a class="cc-button cc-primary"
+                   href="downloads/DS-AI-Voice.apk">
+                    DOWNLOAD DS AI ↗
+                </a>
+            </article>
+
+            <article class="cc-card">
+                <div class="cc-card-icon" aria-hidden="true">▤</div>
+                <span class="cc-tag">Education</span>
+                <h3>DS Board Exam</h3>
+                <p>
+                    Access study resources and the Class 12 board exam companion.
+                </p>
+                <a class="cc-button cc-primary"
+                   href="https://github.com/dsrajput0931-pixel/ds-board-exam-release/releases/download/v1.0.1/DS-Board-Exam-Candidate.apk">
+                    GET THE APP ↗
+                </a>
+            </article>
+
+            <article class="cc-card">
+                <div class="cc-card-icon" aria-hidden="true">⌘</div>
+                <span class="cc-tag">Explore</span>
+                <h3>Projects Hub</h3>
+                <p>
+                    Discover the projects, experiments and ideas we're building.
+                </p>
+                <a class="cc-button" href="#projects">
+                    EXPLORE PROJECTS ↗
+                </a>
+            </article>
+
+            <article class="cc-card">
+                <div class="cc-card-icon" aria-hidden="true">◎</div>
+                <span class="cc-tag">Headquarters</span>
+                <h3>DSR Novix Website</h3>
+                <p>
+                    Return to the homepage and explore the full digital space.
+                </p>
+                <a class="cc-button" href="#home">
+                    BACK TO HOME ↑
+                </a>
+            </article>
+        </div>
+
+        <div class="cc-footer">
+            <span>PLATFORM: <strong>DSR NOVIX</strong></span>
+            <span id="cc-status">Interface loaded · External services not checked</span>
+        </div>
+    </div>
+</section>
+
 <section class="contact" id="contact">
 
     <div class="contact-content">
@@ -1570,6 +1882,19 @@ nav .logo span {
     var results = document.getElementById("novix-search-results");
     var status = document.getElementById("novix-search-status");
     var timer;
+
+    var ccClock = document.getElementById("cc-clock");
+
+    function updateCommandClock() {
+        if (!ccClock) return;
+        var now = new Date();
+        ccClock.textContent = "LOCAL TIME " +
+            now.toLocaleTimeString([], { hour12: false });
+    }
+
+    updateCommandClock();
+    if (ccClock) window.setInterval(updateCommandClock, 1000);
+
 
     function closeIntro() {
         if (!intro || intro.classList.contains("is-leaving")) return;
